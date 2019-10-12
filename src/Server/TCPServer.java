@@ -6,12 +6,15 @@ import java.io.IOException;
 import java.util.*;
 import java.io.*;
 import java.net.*;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class TCPServer {
 
     public ServerSocket serverSocket;
     public int ServerPort;
-    public HashMap<Integer,Person> hashMap;
+    public HashMap<Integer,Person> hashMap;     // store persons (should work with JSON)
 
     public TCPServer() {
         try {
@@ -35,13 +38,14 @@ public class TCPServer {
                 BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 System.out.println(klient=br.readLine());
 
-                Person testPers=new Person(klient,"0");
-                this.putInHashMap(testPers);
+                this.parseJSONMessage(klient);
 
-                System.out.println(hashMap.get(testPers.hashCode()));
+                //Person testPers=new Person(klient,"0");
+                //this.putInHashMap(testPers);
+                //System.out.println(hashMap.get(testPers.hashCode()));
             }
 
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
@@ -52,6 +56,19 @@ public class TCPServer {
             // tuka na pr da szgolemuva broj na pojavuvanja
             return v;
         });
+    }
+
+    public HashMap<String,String> parseJSONMessage(String jsonStr) throws ParseException {
+        JSONParser parser = new JSONParser();
+
+        Object obj = parser.parse(jsonStr);
+        JSONObject jo=(JSONObject) obj;
+
+        // do tuka e okej
+        HashMap <String,String> internalHash =new HashMap<>();
+        jo.keySet().stream().forEach(k -> internalHash.put(k.toString(),jo.get(k).toString()));
+
+        return internalHash;
     }
 
     public static void main(String[] args) {
