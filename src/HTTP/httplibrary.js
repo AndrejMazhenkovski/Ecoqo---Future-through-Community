@@ -41,7 +41,7 @@ class easyHTTP {
                 },
                 body : JSON.stringify(data)
             })
-            const resData = await 'Resource Deleted'
+            const resData = 'Resource Deleted'
             return resData;
 
     }
