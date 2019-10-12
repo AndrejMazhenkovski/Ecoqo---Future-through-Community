@@ -27,7 +27,7 @@ public class TestClient {
     }
 
     public void start() throws IOException {
-        Person tmpPers=new Person("Imeto","0");
+        Person tmpPers=new Person("Imeto","0", 12);
         String message=makeJSON(tmpPers);
 
         PrintWriter pw=new PrintWriter(socket.getOutputStream());
