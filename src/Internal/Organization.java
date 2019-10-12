@@ -1,6 +1,7 @@
 package Internal;
 
-public class Organization {
+public class Organization implements User{
+
     private String name;
 
     public Organization(String name){
