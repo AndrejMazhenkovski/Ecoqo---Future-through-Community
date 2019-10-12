@@ -1,4 +1,5 @@
 package Server;
+import Internal.Organization;
 import Internal.Person;
 
 import javax.imageio.plugins.tiff.ExifGPSTagSet;
@@ -14,7 +15,8 @@ public class TCPServer {
 
     public ServerSocket serverSocket;
     public int ServerPort;
-    public HashMap<Integer,Person> hashMap;     // store persons (should work with JSON)
+    public HashMap<Integer,Person> hashPersons;     // store persons
+    public HashMap<Integer, Organization> hashOrg;
 
     public TCPServer() {
         try {
@@ -25,7 +27,7 @@ public class TCPServer {
             System.out.println("Sth wrong");
         }
 
-        hashMap = new HashMap<Integer, Person>();  //Comparator.comparing(Person::getAge)
+        hashPersons = new HashMap<Integer, Person>();  //Comparator.comparing(Person::getAge)
     }
     public void listen(){
         String klient;
@@ -42,7 +44,7 @@ public class TCPServer {
 
                 //Person testPers=new Person(klient,"0");
                 //this.putInHashMap(testPers);
-                //System.out.println(hashMap.get(testPers.hashCode()));
+                //System.out.println(hashPersons.get(testPers.hashCode()));
             }
 
         } catch (IOException | ParseException e) {
@@ -51,8 +53,8 @@ public class TCPServer {
     }
 
     public void putInHashMap(Person testPers){
-        hashMap.computeIfAbsent(testPers.hashCode(), val-> testPers);
-        hashMap.computeIfPresent(testPers.hashCode(), (k,v)->{
+        hashPersons.computeIfAbsent(testPers.hashCode(), val-> testPers);
+        hashPersons.computeIfPresent(testPers.hashCode(), (k,v)->{
             // tuka na pr da szgolemuva broj na pojavuvanja
             return v;
         });
