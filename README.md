@@ -25,7 +25,7 @@ Ecoqo - Future through Community
 
 1. One-liner: Direct pipeline between volunteers & organizations (charities, bigger influencers)
 
-2. The idea of Ecoqoa is to offer a way for people within different communities, to interact with each other while doing environmental activities, charity & volunteer work. 
+2. The idea of Ecoqo is to offer a way for people within different communities, to interact with each other while doing environmental activities, charity & volunteer work. 
 
 - Your company needs some team building to strenghten company culture ? Join an event, make a social impact, and interact
 
@@ -44,7 +44,7 @@ Team Members:
 Ivan Gadjovski (Server Side)
 Andrej Hristov (JSON + Frontend)
 Andrej Mazhenkovski (Frontend + Inital Setup + Copywriting)
-Tammy ( Data Science, Facebook API, Logo)
+Tammy (Design Logo Logo)
 
 
 
