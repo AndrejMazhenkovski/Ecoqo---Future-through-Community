@@ -11,6 +11,10 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "form-serialize": "^0.7.2",
+    "jquery-serializejson": "^2.9.0",
+    "serialize-to-js": "^3.0.0",
+    "serialize.js": "0.0.10",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

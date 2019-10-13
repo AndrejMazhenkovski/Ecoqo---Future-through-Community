@@ -43,7 +43,7 @@
                                 
                                     <a class="text-center" href="index.html"> <h4>Rosella</h4></a>
         
-                                <form class="mt-5 mb-5 login-input">
+                                <form class="mt-5 mb-5 login-input" id="form">
                                     <div class="form-group">
                                         <input type="text" class="form-control"  placeholder="Name" required>
                                     </div>
@@ -53,9 +53,11 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password" required>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign in</button>
+                                    <div class="form-group">
+                                   <button class="btn login-form__btn submit w-100" type="submit" id="submit">Sign Up</button>
+                                </div>
                                 </form>
-                                    <p class="mt-5 login-form__footer">Have account <a href="page-login.html" class="text-primary">Sign Up </a> now</p>
+                                    <p class="mt-5 login-form__footer">Already have an account <a href="page-login.html" class="text-primary">Sign In</a> now</p>
                                     </p>
                                 </div>
                             </div>
@@ -65,6 +67,74 @@
             </div>
         </div>
     </div>
+    <div id="demo">
+
+    </div>
+
+    <script>
+    //  const handleFormSubmit = event => {
+    //         event.preventDefault();
+    //         let inputs = document.getElementsByTagName('input');
+    //         let name = inputs[0].innerHTML;
+    //         let email = inputs[1].innerHTML;
+    //         let password = inputs[2].innerHTML;
+    //         console.log(name, email, password);
+    //         let data = {};
+    //         JSON.stringify(data, null, " ");
+    //         setTimeout(1000);
+    //     }
+            // let inputs = document.getElementsByClassName('form-control');
+            // let name = document.getElementsByClassName('form-control')[0].iner
+            // let email = document.getElementsByClassName('form-control')[1].iner
+            // let password = document.getElementsByClassName('form-control')[2];
+            // console.log(name, email, password);
+
+    //         let formData = document.getElementById("myForm").elements;
+    //         let object = {};
+    //         formData.forEach((value, key) => {object[key] = value});
+    //         let json = JSON.stringify(object);
+    //         console.log(json);
+
+
+    // document.getElementById("demo").innerHTML = JSON.stringify(obj);
+    // let form = document.getElementById('myForm');
+    // form.addEventListener('submit', function() {
+    // JSON.stringify(Object.fromEntries(FormData));
+    // })
+    // console.log(JSON.stringify(Object.fromEntries(FormData)));
+    // let submit = document.getElementById("submit");
+    
+//     let formData = new FormData(form);
+//     let toJson = function(event) {
+//         event.preventDefault();
+//         let object = {};
+//         formData.forEach((value, key) => {
+//             if (!object.hasOwnProperty(key)) {
+//       object[key] = value;
+//       return;
+//     }
+//     if (!Array.isArray(object[key])) {
+//       object[key] = [object[key]];
+//     }
+//     object[key].push(value);
+//   });
+//   let json = JSON.stringify(object);
+//   console.log(json);
+//     }
+//     form.addEventListener("click", toJson);
+document.getElementById("form").addEventListener('submit', function(event){
+event.preventDefault();
+    var formData = new FormData(document.getElementById("form")),
+        result = {};
+
+    for (var entry of formData.entries())
+    {
+        result[entry[0]] = entry[1];
+    }
+    result = JSON.stringify(result)
+    console.log(result);
+});
+    </script>
     
 
     

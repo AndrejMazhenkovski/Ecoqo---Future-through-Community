@@ -6,38 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Easy Http Library</title>
 </head>
+
+<script  src="C:\Ivan\httplibrary.js"></script>
+
 <body>
     <h1>Easy HTTP Library</h1>
-    <button onlclick="funkcija()"> Click for IVAN </button>
-    <script>
-        var objektot={
-        "glossary": {
-            "title": "example glossary",
-            "GlossDiv": {
-                "title": "S",
-                "GlossList": {
-                    "GlossEntry": {
-                        "ID": "SGML",
-                        "SortAs": "SGML",
-                        "GlossTerm": "Standard Generalized Markup Language",
-                        "Acronym": "SGML",
-                        "Abbrev": "ISO 8879:1986",
-                        "GlossDef": {
-                            "para": "A meta-markup language, used to create markup languages such as DocBook.",
-                            "GlossSeeAlso": ["GML", "XML"]
-                        },
-                        "GlossSee": "markup"
-                    }
-                }
-            }
-        }
-    }
-
-        function funkcija(){
-            easyHTTP.post("http://localhost:8000",objektot).then (data => console.log(data)).catch (error=> console.log(error) )}
-    </script>
-    <script src="C:\Ivan\httplibrary.js"></script>
+     <button id="btn"> Click for IVAN </button> 
+    <p id="Menuvac">TEXT</p>
     
     
 </body>
+
+<script>
+        izi  = new easyHTTP();
+
+       var obj = {
+	     type: "Register",
+	    user :"1",
+        lastName:"Smith",
+        age: "25",
+        firstName:"John"
+        }
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener('click', izi.post("https://localhost:8000", obj));     
+
+        // post("http://localhost:8000",obj).then (data => console.log(data)).catch (error=> console.log(error) )
+        
+        
+
+
+    </script>
 </html>
