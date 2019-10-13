@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Easy Http Library</title>
+</head>
+
+<script  src="C:\Ivan\httplibrary.js"></script>
+<script>
+        izi  = new easyHTTP();
+
+       var obj = {
+	     type: "Register",
+	    user :"1",
+        lastName:"Smith",
+        age: "25",
+        firstName:"John"
+        }
+
+        
+         funkcija= () =>{
+
+            izi.post("http://localhost:8000",obj).then (data => console.log(data)).catch (error=> console.log(error) )
+        
+        }
+
+
+    </script>
+
+<body>
+    <h1>Easy HTTP Library</h1>
+     <button onclick="funkcija()"> Click for IVAN </button> 
+    <p id="Menuvac">TEXT</p>
+    
+    
+</body>
+</html>

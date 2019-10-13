@@ -44,49 +44,59 @@ public class TCPServer {
 
     public void listen(){
         String clientJSON;
+        System.out.println("--Server active and Listening--");
 
-        try {
-            while (true) {
-                Socket client = serverSocket.accept();
-                System.out.println("New Connection from: " + client.getInetAddress());
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                //System.out.println(clientJSON=br.readLine());
-
-                // Main things
-                identifyMessage();
-
-                if (identifyMessage()==1) {    // Registration
-                    User testUsr = new Person("Jo","20",4);
-                    User testUsr2 = new Person("Males","12",3);
-                    this.putInRepo(testUsr,1);
-                    this.putInRepo(testUsr2,1);
-                    //this.parseJSONMessage(clientJSON);
-                }
-                if (identifyMessage()==2){    // Rankings Persons
-                  User testUsr = new Person("Jo","20",4);
-                  User testUsr2 = new Person("Males","12",3);
-                  this.putInRepo(testUsr,1);
-                  this.putInRepo(testUsr2,1);
-
-                  System.out.println(topRankedPersons());
-                }
-                if(identifyMessage()==3){   // Rankings Organizations
-                    User testOrg = new Organization("APP",7);
-                    User testOrg2 = new Organization("DOS",3);
-                    this.putInRepo(testOrg,2);
-                    this.putInRepo(testOrg2,2);
-
-                  System.out.println(topRankedOrgs());
-                }
-                //Person testPers=new Person(klient,"0");
-                //this.putInHashMap(testPers);
-                //System.out.println(hashPersons.get(testPers.hashCode()));
-            }
-
+      Socket client = null;
+      try {
+          client = serverSocket.accept();
+          BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+          System.out.println(clientJSON=br.readLine());
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
+
+
+//        try {
+//            while (true) {
+//                Socket client = serverSocket.accept();
+//                System.out.println("New Connection from: " + client.getInetAddress());
+//
+//                BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+//                //System.out.println(clientJSON=br.readLine());
+//
+//                // Main things
+//
+//                if (identifyMessage()==1) {    // Registration
+//                    User testUsr = new Person("Jo","20",4);
+//                    User testUsr2 = new Person("Males","12",3);
+//                    this.putInRepo(testUsr,1);
+//                    this.putInRepo(testUsr2,1);
+//                    //this.parseJSONMessage(clientJSON);
+//                }
+//                if (identifyMessage()==2){    // Rankings Persons
+//                  User testUsr = new Person("Jo","20",4);
+//                  User testUsr2 = new Person("Males","12",3);
+//                  this.putInRepo(testUsr,1);
+//                  this.putInRepo(testUsr2,1);
+//
+//                  System.out.println(topRankedPersons());
+//                }
+//                if(identifyMessage()==3){   // Rankings Organizations
+//                    User testOrg = new Organization("APP",7);
+//                    User testOrg2 = new Organization("DOS",3);
+//                    this.putInRepo(testOrg,2);
+//                    this.putInRepo(testOrg2,2);
+//
+//                  System.out.println(topRankedOrgs());
+//                }
+//                //Person testPers=new Person(klient,"0");
+//                //this.putInHashMap(testPers);
+//                //System.out.println(hashPersons.get(testPers.hashCode()));
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public int identifyMessage(){
@@ -128,6 +138,7 @@ public class TCPServer {
 
        return allOrgs;
     }
+
     public HashMap<String,String> parseJSONMessage(String jsonStr) throws ParseException {
         JSONParser parser = new JSONParser();
 

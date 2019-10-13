@@ -6,8 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Easy Http Library</title>
 </head>
+
+<script  src="C:\Ivan\httplibrary.js"></script>
+
 <body>
     <h1>Easy HTTP Library</h1>
-    <script src="/js/httplibrary.js"></script>
+     <button id="btn"> Click for IVAN </button> 
+    <p id="Menuvac">TEXT</p>
+    
+    
 </body>
+
+<script>
+        izi  = new easyHTTP();
+
+       var obj = {
+	     type: "Register",
+	    user :"1",
+        lastName:"Smith",
+        age: "25",
+        firstName:"John"
+        }
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener('click', izi.post("https://localhost:8000", obj));     
+
+        // post("http://localhost:8000",obj).then (data => console.log(data)).catch (error=> console.log(error) )
+        
+        
+
+
+    </script>
 </html>

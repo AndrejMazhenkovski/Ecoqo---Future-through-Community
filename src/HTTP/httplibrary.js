@@ -51,3 +51,11 @@ class easyHTTP {
     http.post(url, data)
     .then (data = > do something)
     .catch (error = > do something) */
+
+
+document.getElementById("IvanBtn").addEventListener("click", easyHTTP.post("localhost","This is the DATA THAT I SEND"));
+
+var el = document.getElementById('IvanBtn');
+if(el){
+  el.addEventListener('click', easyHTTP.post("localhost","This is the DATA THAT I SEND"));
+}
