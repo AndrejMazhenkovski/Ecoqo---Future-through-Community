@@ -27,7 +27,7 @@
 			//easyHTTP.prototype.post("http://localhost:8000",json).then (data => console.log(data)).catch (error=> console.log(error))
 			
 			const http = new easyHTTP();
-			http.post("http://localhost:8000",json).then (data => data.JSON().catch (error=> console.log(error));
+			http.post("http://localhost:8000",json).then (data => console.log(data)).catch (error=> console.log(error));
 
 		}, false);
 

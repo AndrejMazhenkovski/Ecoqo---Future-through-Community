@@ -8,6 +8,15 @@
 </head>
 
 <script  src="C:\Ivan\httplibrary.js"></script>
+
+<body>
+    <h1>Easy HTTP Library</h1>
+     <button id="btn"> Click for IVAN </button> 
+    <p id="Menuvac">TEXT</p>
+    
+    
+</body>
+
 <script>
         izi  = new easyHTTP();
 
@@ -19,21 +28,13 @@
         firstName:"John"
         }
 
-        
-         funkcija= () =>{
+        let btn = document.getElementById("btn");
+        btn.addEventListener('click', izi.post("https://localhost:8000", obj));     
 
-            izi.post("http://localhost:8000",obj).then (data => console.log(data)).catch (error=> console.log(error) )
+         post("http://localhost:8000",obj).then (data => console.log(data)).catch (error=> console.log(error) )
         
-        }
+        
 
 
     </script>
-
-<body>
-    <h1>Easy HTTP Library</h1>
-     <button onclick="funkcija()"> Click for IVAN </button> 
-    <p id="Menuvac">TEXT</p>
-    
-    
-</body>
 </html>

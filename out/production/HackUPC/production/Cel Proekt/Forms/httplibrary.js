@@ -1,4 +1,6 @@
 class easyHTTP {
+
+    //easyHTTP();
     // GET Request
     async get(url) {
     const response = await fetch(url);
@@ -53,9 +55,9 @@ class easyHTTP {
     .catch (error = > do something) */
 
 
-document.getElementById("IvanBtn").addEventListener("click", easyHTTP.post("localhost","This is the DATA THAT I SEND"));
+// document.getElementById("IvanBtn").addEventListener("click", easyHTTP.post("localhost","This is the DATA THAT I SEND"));
 
-var el = document.getElementById('IvanBtn');
-if(el){
-  el.addEventListener('click', easyHTTP.post("localhost","This is the DATA THAT I SEND"));
-}
+// var el = document.getElementById('IvanBtn');
+// if(el){
+//   el.addEventListener('click', easyHTTP.post("localhost","This is the DATA THAT I SEND"));
+// }
