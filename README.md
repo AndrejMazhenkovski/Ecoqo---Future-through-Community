@@ -30,7 +30,7 @@ Team Members:
 
 Ivan Gadjovski (Server Side)
 Andrej Hristov (JSON + Frontend)
-Andrej Mazhenkovski (Frontend + Inital Setup + Copywriting)
+Andrej Mazhenkovski (Frontend)
 Tammy (Design Logo Logo)
 
 
